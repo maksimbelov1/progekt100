@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe0ecc45-9e69-4ea5-800f-d9337d125434" name="Changes" comment="int cs" />
+    <list default="true" id="fe0ecc45-9e69-4ea5-800f-d9337d125434" name="Changes" comment="panel created" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,15 +34,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/belovmv.24/IdeaProjects/untitled2/src/main/resources&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/belovmv.24/IdeaProjects/untitled2/src/main/resources",
+    "nodejs_package_manager_path": "npm"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\belovmv.24\IdeaProjects\untitled2\src\main\resources" />
@@ -77,7 +78,7 @@
       <workItem from="1669626824939" duration="2108000" />
       <workItem from="1670227804941" duration="1021000" />
       <workItem from="1670491610819" duration="678000" />
-      <workItem from="1671697433430" duration="571000" />
+      <workItem from="1671697433430" duration="677000" />
     </task>
     <task id="LOCAL-00001" summary="classes">
       <created>1669284007838</created>

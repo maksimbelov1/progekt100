@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe0ecc45-9e69-4ea5-800f-d9337d125434" name="Changes" comment="panel created" />
+    <list default="true" id="fe0ecc45-9e69-4ea5-800f-d9337d125434" name="Changes" comment="panel created">
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/Fonts.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controls/Label.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/panels/Panel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/panels/Panel.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,16 +40,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/belovmv.24/IdeaProjects/untitled2/src/main/resources",
-    "nodejs_package_manager_path": "npm"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/belovmv.24/IdeaProjects/untitled2/src/main/resources&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\belovmv.24\IdeaProjects\untitled2\src\main\resources" />
@@ -79,6 +85,7 @@
       <workItem from="1670227804941" duration="1021000" />
       <workItem from="1670491610819" duration="678000" />
       <workItem from="1671697433430" duration="677000" />
+      <workItem from="1671698127538" duration="674000" />
     </task>
     <task id="LOCAL-00001" summary="classes">
       <created>1669284007838</created>
@@ -150,7 +157,21 @@
       <option name="project" value="LOCAL" />
       <updated>1670492183048</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="test">
+      <created>1671698144120</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1671698144120</updated>
+    </task>
+    <task id="LOCAL-00012" summary="panel created">
+      <created>1671698187392</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1671698187392</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,6 +197,8 @@
     <MESSAGE value="drawign rect works" />
     <MESSAGE value="int vector" />
     <MESSAGE value="int cs" />
-    <option name="LAST_COMMIT_MESSAGE" value="int cs" />
+    <MESSAGE value="test" />
+    <MESSAGE value="panel created" />
+    <option name="LAST_COMMIT_MESSAGE" value="panel created" />
   </component>
 </project>

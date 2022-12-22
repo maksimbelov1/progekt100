@@ -1,5 +1,6 @@
 package app;
 
+import controls.Label;
 import io.github.humbleui.jwm.*;
 import io.github.humbleui.jwm.skija.EventFrameSkija;
 import io.github.humbleui.skija.Canvas;
@@ -13,8 +14,19 @@ import java.io.File;
 import java.util.function.Consumer;
 
 import static app.Colors.APP_BACKGROUND_COLOR;
+import static app.Colors.PANEL_BACKGROUND_COLOR;
 
 public class Application implements Consumer<Event> {
+
+    /**
+     * Первый заголовок
+     */
+    private final Label label;
+
+    /**
+     * отступы панелей
+     */
+    public static final int PANEL_PADDING = 5;
     /**
      * радиус скругления элементов
      */
@@ -40,7 +52,11 @@ public class Application implements Consumer<Event> {
         window.setWindowSize(900, 900);
         // задаём его положение
         window.setWindowPosition(100, 100);
-        // задаём иконку
+
+
+        // создаём первый заголовок
+        label = new Label(window, false, PANEL_BACKGROUND_COLOR, PANEL_PADDING, "Привет, мир!");
+
 
         switch (Platform.CURRENT) {
             case WINDOWS -> window.setIcon(new File("src/main/resources/windows.ico"));
@@ -99,19 +115,26 @@ public class Application implements Consumer<Event> {
      * @param canvas   низкоуровневый инструмент рисования примитивов от Skija
      * @param windowCS СК окна
      */
+    /**
+     * Рисование
+     *
+     * @param canvas   низкоуровневый инструмент рисования примитивов от Skija
+     * @param windowCS СК окна
+     */
     public void paint(Canvas canvas, CoordinateSystem2i windowCS) {
         // запоминаем изменения (пока что там просто заливка цветом)
         canvas.save();
         // очищаем канвас
         canvas.clear(APP_BACKGROUND_COLOR);
-        // создаём кисть
-        Paint paint = new Paint();
-        // задаём цвет рисования
-        paint.setColor(Misc.getColor(100, 255, 255, 255));
-        // рисуем квадрат
-        canvas.drawRRect(windowCS.getRRect(4), paint);
-        // восстанавливаем состояние канваса
+        // рисуем заголовок
+
         canvas.restore();
+
+
+        // рисуем заголовок в точке [100,100] с шириной и выостой 200
+        label.paint(canvas, new CoordinateSystem2i(100, 100, 200, 200));
+
+
     }
 
 }

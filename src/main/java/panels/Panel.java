@@ -13,6 +13,7 @@ import static app.Application.C_RAD_IN_PX;
 
 
 
+
 /**
  * Класс панели
  */

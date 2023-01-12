@@ -9,6 +9,7 @@ import io.github.humbleui.skija.RRect;
 import io.github.humbleui.skija.Surface;
 import misc.CoordinateSystem2i;
 import misc.Misc;
+import misc.Vector2i;
 import panels.PanelControl;
 import panels.PanelHelp;
 import panels.PanelLog;
@@ -21,6 +22,7 @@ import static app.Colors.APP_BACKGROUND_COLOR;
 import static app.Colors.PANEL_BACKGROUND_COLOR;
 
 public class Application implements Consumer<Event> {
+
     /**
      * панель легенды
      */
@@ -75,6 +77,30 @@ public class Application implements Consumer<Event> {
 
         // создаём окно
         window = App.makeWindow();
+        // создаём панель рисования
+        panelRendering = new PanelRendering(
+                window, true, PANEL_BACKGROUND_COLOR, PANEL_PADDING, 5, 3, 0, 0,
+                3, 2
+        );
+
+
+        // создаём панель управления
+        panelControl = new PanelControl(
+                window, true, PANEL_BACKGROUND_COLOR, PANEL_PADDING, 5, 3, 3, 0,
+                2, 2
+        );
+        // создаём панель лога
+        panelLog = new PanelLog(
+                window, true, PANEL_BACKGROUND_COLOR, PANEL_PADDING, 5, 3, 0, 2,
+                3, 1
+        );
+        // создаём панель помощи
+        panelHelp = new PanelHelp(
+                window, true, PANEL_BACKGROUND_COLOR, PANEL_PADDING, 5, 3, 3, 2,
+                2, 1
+        );
+
+
 
         // создаём первый заголовок
         label = new Label(window, true, PANEL_BACKGROUND_COLOR, PANEL_PADDING,
@@ -97,27 +123,6 @@ public class Application implements Consumer<Event> {
         window.setWindowPosition(100, 100);
 
 
-
-        // создаём панель рисования
-        panelRendering = new PanelRendering(
-                window, true, PANEL_BACKGROUND_COLOR, PANEL_PADDING, 5, 3, 0, 0,
-                3, 2
-        );
-        // создаём панель управления
-        panelControl = new PanelControl(
-                window, true, PANEL_BACKGROUND_COLOR, PANEL_PADDING, 5, 3, 3, 0,
-                2, 2
-        );
-        // создаём панель лога
-        panelLog = new PanelLog(
-                window, true, PANEL_BACKGROUND_COLOR, PANEL_PADDING, 5, 3, 0, 2,
-                3, 1
-        );
-        // создаём панель помощи
-        panelHelp = new PanelHelp(
-                window, true, PANEL_BACKGROUND_COLOR, PANEL_PADDING, 5, 3, 3, 2,
-                2, 1
-        );
 
 
 
@@ -151,8 +156,9 @@ public class Application implements Consumer<Event> {
 
         // делаем окно видимым
         window.setVisible(true);
-    }
 
+
+    }
 
 
     /**
@@ -168,11 +174,15 @@ public class Application implements Consumer<Event> {
             App.terminate();
         } else if (e instanceof EventWindowCloseRequest) {
             window.close();
-    } else if (e instanceof EventFrameSkija ee) {
-        Surface s = ee.getSurface();
-        paint(s.getCanvas(), new CoordinateSystem2i(s.getWidth(), s.getHeight()));
-    }
-
+        } else if (e instanceof EventFrameSkija ee) {
+            // получаем поверхность рисования
+            Surface s = ee.getSurface();
+            // очищаем её канвас заданным цветом
+            paint(s.getCanvas(), new CoordinateSystem2i(s.getWidth(), s.getHeight()));
+        }
+        panelControl.accept(e);
+        panelRendering.accept(e);
+        panelLog.accept(e);
     }
     /**
      * Рисование

@@ -2,6 +2,7 @@ package panels;
 
 import app.Point;
 import app.Task;
+
 import java.util.ArrayList;
 
 import controls.*;
@@ -124,6 +125,29 @@ public class PanelControl extends GridPanel {
         });
         buttons.add(addToSecondSet);
 
+        // случайное добавление
+        Label cntLabel = new Label(window, false, backgroundColor, PANEL_PADDING,
+                6, 7, 0, 4, 1, 1, "Кол-во", true, true);
+        labels.add(cntLabel);
+
+        Input cntField = InputFactory.getInput(window, false, FIELD_BACKGROUND_COLOR, PANEL_PADDING,
+                6, 7, 1, 4, 2, 1, "5", true,
+                FIELD_TEXT_COLOR, true);
+        inputs.add(cntField);
+
+        Button addPoints = new Button(
+                window, false, backgroundColor, PANEL_PADDING,
+                6, 7, 3, 4, 3, 1, "Добавить\nслучайные точки",
+                true, true);
+        addPoints.setOnClick(() -> {
+            // если числа введены верно
+            if (!cntField.hasValidIntValue()) {
+                PanelLog.warning("кол-во точек указано неверно");
+            } else
+                PanelRendering.task.addRandomPoints(cntField.intValue());
+        });
+        buttons.add(addPoints);
+
     }
 
     /**
@@ -166,32 +190,51 @@ public class PanelControl extends GridPanel {
             // перерисовываем окно
             window.requestFrame();
             // обработчик ввода текста
+        } // если вводится текст
+        else if (e instanceof EventTextInput ee) {
+            // перебираем поля ввода
+            for (Input input : inputs) {
+                // если клик внутри этого поля
+                if (input.isFocused()) {
+                    // переводим фокус на это поле ввода
+                    input.accept(ee);
+                }
+            }
+        } else if (e instanceof EventKey ee) {
+            // перебираем поля ввода
+            for (Input input : inputs) {
+                // если клик внутри этого поля
+                if (input.isFocused()) {
+                    // переводим фокус на это поле ввода
+                    input.accept(ee);
+                }
+            }
         }
     }
 
-        /**
-         * Метод под рисование в конкретной реализации
-         *
-         * @param canvas   область рисования
-         * @param windowCS СК окна
-         */
-        @Override
-        public void paintImpl (Canvas canvas, CoordinateSystem2i windowCS){
-            // выводим текст задачи
-            task.paint(canvas, windowCS);
+    /**
+     * Метод под рисование в конкретной реализации
+     *
+     * @param canvas   область рисования
+     * @param windowCS СК окна
+     */
+    @Override
+    public void paintImpl(Canvas canvas, CoordinateSystem2i windowCS) {
+        // выводим текст задачи
+        task.paint(canvas, windowCS);
 
-            // выводим кнопки
-            for (Button button : buttons) {
-                button.paint(canvas, windowCS);
-            }
-            // выводим поля ввода
-            for (Input input : inputs) {
-                input.paint(canvas, windowCS);
-            }
-            // выводим поля ввода
-            for (Label label : labels) {
-                label.paint(canvas, windowCS);
-            }
+        // выводим кнопки
+        for (Button button : buttons) {
+            button.paint(canvas, windowCS);
         }
+        // выводим поля ввода
+        for (Input input : inputs) {
+            input.paint(canvas, windowCS);
+        }
+        // выводим поля ввода
+        for (Label label : labels) {
+            label.paint(canvas, windowCS);
+        }
+    }
 
 }

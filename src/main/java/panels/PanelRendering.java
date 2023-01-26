@@ -52,6 +52,20 @@ public class PanelRendering extends GridPanel {
      * @param colspan    кол-во колонок, занимаемых панелью
      * @param rowspan    кол-во строк, занимаемых панелью
      */
+    /**
+     * Панель управления
+     *
+     * @param window     окно
+     * @param drawBG     флаг, нужно ли рисовать подложку
+     * @param color      цвет подложки
+     * @param padding    отступы
+     * @param gridWidth  кол-во ячеек сетки по ширине
+     * @param gridHeight кол-во ячеек сетки по высоте
+     * @param gridX      координата в сетке x
+     * @param gridY      координата в сетке y
+     * @param colspan    кол-во колонок, занимаемых панелью
+     * @param rowspan    кол-во строк, занимаемых панелью
+     */
     public PanelRendering(
             Window window, boolean drawBG, int color, int padding, int gridWidth, int gridHeight,
             int gridX, int gridY, int colspan, int rowspan
@@ -63,19 +77,10 @@ public class PanelRendering extends GridPanel {
                 new Vector2d(-10.0, -10.0), new Vector2d(10.0, 10.0)
         );
 
-        // создаём массив случайных точек
-        ArrayList<Point> points = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            // получаем случайное множество
-            Point.PointSet pointSet = ThreadLocalRandom.current().nextBoolean() ?
-                    Point.PointSet.FIRST_SET : Point.PointSet.SECOND_SET;
-            // добавляем точку в случайном месте ОСК в указанное множество
-            points.add(new Point(cs.getRandomCoords(), pointSet));
-        }
-        task = new Task(cs, points);
-
-
-
+        // создаём задачу без точек
+        task = new Task(cs, new ArrayList<>());
+        // добавляем в нё 10 случайных
+        task.addRandomPoints(10);
     }
     /**
      * Обработчик событий

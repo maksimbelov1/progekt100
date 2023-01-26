@@ -36,6 +36,12 @@ public class Colors {
 
 
     /**
+     * Цвет кнопки
+     */
+    public static final int BUTTON_COLOR = Misc.getColor(80, 0, 0, 0);
+
+
+    /**
      * Запрещённый конструктор
      */
     private Colors() {

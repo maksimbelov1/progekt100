@@ -20,6 +20,12 @@ public class Input extends GridPanel {
      */
     String text;
     /**
+     * флаг, помещён ли сейчас фокус на это поле ввода
+     * (модификатор доступа по умолчанию, чтобы был доступен
+     * фабрике InputFactory внутри пакета)
+     */
+    boolean focused = false;
+    /**
      * Смещение для красивого отображения текста
      */
     private static final int LOCAL_PADDING = 8;
@@ -31,35 +37,6 @@ public class Input extends GridPanel {
      * Цвет текста
      */
     private final int textColor;
-
-
-    /**
-     * флаг, помещён ли сейчас фокус на это поле ввода
-     * (модификатор доступа по умолчанию, чтобы был доступен
-     * фабрике InputFactory внутри пакета)
-     */
-    boolean focused = false;
-
-
-    /**
-     * Установить фокус на это поле ввода
-     */
-    public void setFocus() {
-        // снимаем фокус со всех полей ввода
-        InputFactory.defocusAll();
-        // выделяем текущее поле ввода
-        this.focused = true;
-    }
-
-
-    /**
-     * Возвращает флаг, установлен ли фокус на это поле ввода
-     *
-     * @return флаг
-     */
-    public boolean isFocused() {
-        return focused;
-    }
 
 
     /**
@@ -92,7 +69,7 @@ public class Input extends GridPanel {
     /**
      * Метод под рисование в конкретной реализации
      *
-     * @param canvas область рисования
+     * @param canvas   область рисования
      * @param windowCS СК окна
      */
     @Override
@@ -122,7 +99,7 @@ public class Input extends GridPanel {
                 // рисуем линию текста
                 canvas.drawTextLine(line, 0, 0, paint);
                 // если время рисовать курсор
-                if (focused && InputFactory.cursorDraw()) {
+                if (InputFactory.cursorDraw()&&isFocused()) {
                     // смещаем область рисования
                     canvas.translate(line.getWidth(), 0);
                     // рисуем его
@@ -134,6 +111,7 @@ public class Input extends GridPanel {
 
         }
     }
+
     /**
      * Обработчик событий
      * При перегрузке обязателен вызов реализации предка
@@ -170,6 +148,38 @@ public class Input extends GridPanel {
                     }
                 }
             }
+        }
+    }
+
+    /**
+     * Получить вещественное значение из поля ввода
+     *
+     * @return возвращает значение, если всё ок, в противном случае вернёт 0
+     */
+    public double doubleValue() {
+        try {
+            // для правильной конвертации, если нужно, заменяем плавающую запятую
+            // на плавающую точку
+            return Double.parseDouble(text.replace(",", "."));
+        } catch (NumberFormatException e) {
+            System.out.println("ошибка преобразования");
+        }
+        return 0;
+    }
+
+    /**
+     * Проверяет, лежит ли в поле ввода правильное вещественное число
+     *
+     * @return флаг
+     */
+    public boolean hasValidDoubleValue() {
+        try {
+            // для правильной конвертации, если нужно, заменяем плавающую запятую
+            // на плавающую точку
+            Double.parseDouble(text.replace(",", "."));
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
         }
     }
 
@@ -221,5 +231,22 @@ public class Input extends GridPanel {
      */
     public String getText() {
         return text;
+    }
+    /**
+     * Возвращает флаг, установлен ли фокус на это поле ввода
+     *
+     * @return флаг
+     */
+    public boolean isFocused() {
+        return focused;
+    }
+    /**
+     * Установить фокус на это поле ввода
+     */
+    public void setFocus() {
+        // снимаем фокус со всех полей ввода
+        InputFactory.defocusAll();
+        // выделяем текущее поле ввода
+        this.focused = true;
     }
 }

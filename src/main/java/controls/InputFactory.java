@@ -121,6 +121,7 @@ public class InputFactory {
     public static boolean cursorDraw() {
         return cursorDraw;
     }
+    
 
     /**
      * Запрещаем вызов конструктора

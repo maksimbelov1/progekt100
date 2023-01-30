@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe0ecc45-9e69-4ea5-800f-d9337d125434" name="Changes" comment="control beginning">
+    <list default="true" id="fe0ecc45-9e69-4ea5-800f-d9337d125434" name="Changes" comment="json works">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Point.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/misc/CoordinateSystem2d.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/misc/CoordinateSystem2d.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/misc/CoordinateSystem2i.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/misc/CoordinateSystem2i.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/panels/PanelRendering.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/panels/PanelRendering.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +86,8 @@
       <workItem from="1673514187824" duration="3582000" />
       <workItem from="1673855480447" duration="674000" />
       <workItem from="1674119062996" duration="3375000" />
-      <workItem from="1674723568100" duration="2976000" />
+      <workItem from="1674723568100" duration="3383000" />
+      <workItem from="1675059717042" duration="1648000" />
     </task>
     <task id="LOCAL-00001" summary="classes">
       <created>1669284007838</created>
@@ -281,7 +278,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674725085657</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="json works">
+      <created>1674726847777</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1674726847777</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -299,7 +303,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="events consumer works" />
     <MESSAGE value="window works" />
     <MESSAGE value="window title ready" />
     <MESSAGE value="window title ready1" />
@@ -324,6 +327,7 @@
     <MESSAGE value="buttons work" />
     <MESSAGE value="random points" />
     <MESSAGE value="control beginning" />
-    <option name="LAST_COMMIT_MESSAGE" value="control beginning" />
+    <MESSAGE value="json works" />
+    <option name="LAST_COMMIT_MESSAGE" value="json works" />
   </component>
 </project>

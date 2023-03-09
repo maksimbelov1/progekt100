@@ -127,9 +127,5 @@ public class PanelRendering extends GridPanel {
     @Override
     public void paintImpl(Canvas canvas, CoordinateSystem2i windowCS) {
         task.paint(canvas, windowCS);
-
-
-
-
     }
 }

@@ -9,10 +9,7 @@ import io.github.humbleui.skija.Canvas;
 import io.github.humbleui.skija.Paint;
 import io.github.humbleui.skija.Rect;
 import lombok.Getter;
-import misc.CoordinateSystem2d;
-import misc.CoordinateSystem2i;
-import misc.Vector2d;
-import misc.Vector2i;
+import misc.*;
 import panels.PanelLog;
 
 import java.util.ArrayList;
@@ -59,6 +56,28 @@ public class Task {
     @JsonIgnore
     private final ArrayList<Point> single;
 
+    Line line;
+
+    /**
+     * Задача
+     *
+     * @param ownCS  СК задачи
+     * @param points массив точек
+     */
+    @JsonCreator
+    public Task(
+            @JsonProperty("ownCS") CoordinateSystem2d ownCS,
+            @JsonProperty("points") ArrayList<Point> points
+    ) {
+        this.ownCS = ownCS;
+        this.points = points;
+
+        this.crossed = new ArrayList<>();
+        this.single = new ArrayList<>();
+        line = new Line(new Vector2d(10, 5), new Vector2d(5, 7), this);
+    }
+
+
     /**
      * Размер точки
      */
@@ -87,7 +106,6 @@ public class Task {
     private boolean solved;
 
 
-
     /**
      * Решить задачу
      */
@@ -104,7 +122,7 @@ public class Task {
                 Point b = points.get(j);
                 // если точки совпадают по положению
                 if (a.pos.equals(b.pos) && !a.pointSet.equals(b.pointSet)) {
-                    if (!crossed.contains(a)){
+                    if (!crossed.contains(a)) {
                         crossed.add(a);
                         crossed.add(b);
                     }
@@ -137,9 +155,6 @@ public class Task {
     public boolean isSolved() {
         return solved;
     }
-
-
-
 
 
     /**
@@ -176,6 +191,7 @@ public class Task {
      * последняя СК окна
      */
     protected CoordinateSystem2i lastWindowCS;
+
     /**
      * Клик мыши по пространству задачи
      *
@@ -194,23 +210,8 @@ public class Task {
             addPoint(taskPos, Point.PointSet.SECOND_SET);
         }
     }
-    /**
-     * Задача
-     *
-     * @param ownCS  СК задачи
-     * @param points массив точек
-     */
-    @JsonCreator
-    public Task(
-            @JsonProperty("ownCS") CoordinateSystem2d ownCS,
-            @JsonProperty("points") ArrayList<Point> points
-    ) {
-        this.ownCS = ownCS;
-        this.points = points;
 
-        this.crossed = new ArrayList<>();
-        this.single = new ArrayList<>();
-    }
+
     /**
      * Добавить точку
      *
@@ -223,8 +224,6 @@ public class Task {
         points.add(newPoint);
         PanelLog.info("точка " + newPoint + " добавлена в " + newPoint.getSetName());
     }
-
-
 
 
     /**
@@ -255,8 +254,13 @@ public class Task {
                 // рисуем точку
                 canvas.drawRect(Rect.makeXYWH(windowPos.x - POINT_SIZE, windowPos.y - POINT_SIZE, POINT_SIZE * 2, POINT_SIZE * 2), paint);
             }
+
         }
+
+        line.renderLine(canvas, windowCS);
+
         canvas.restore();
     }
+
 
 }

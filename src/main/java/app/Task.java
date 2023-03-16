@@ -74,7 +74,7 @@ public class Task {
 
         this.crossed = new ArrayList<>();
         this.single = new ArrayList<>();
-        line = new Line(new Vector2d(10, 5), new Vector2d(5, 7), this);
+        line = new Line(new Vector2d(1, 2), new Vector2d(2, 1), this);
     }
 
 

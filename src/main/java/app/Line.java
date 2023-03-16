@@ -40,13 +40,13 @@ public class Line {
             canvas.drawLine(renderPointA.x, renderPointA.y, renderPointB.x, renderPointB.y, p);
         }
         try (Paint p = new Paint()) {
-            p.setColor(Misc.getColor(100, 200, 100, 50));
-            canvas.drawRect(Rect.makeXYWH(renderPointA.x, renderPointA.y,2,2),p);
-            canvas.drawRect(Rect.makeXYWH(renderPointB.x, renderPointB.y,2,2),p);
+            p.setColor(Misc.getColor(200, 200, 100, 50));
+            canvas.drawRect(Rect.makeXYWH(pointA.x - 3, pointA.y - 3, 6, 6), p);
+            canvas.drawRect(Rect.makeXYWH(pointB.x - 3, pointB.y - 3, 6, 6), p);
         }
 
-            }
-        }
+    }
+}
 
 
 

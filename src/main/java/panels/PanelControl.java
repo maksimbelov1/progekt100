@@ -112,7 +112,7 @@ public class PanelControl extends GridPanel {
 
         Button addToFirstSet = new Button(
                 window, false, backgroundColor, PANEL_PADDING,
-                6, 7, 0, 3, 3, 1, "Добавить точку",
+                6, 7, 2, 3, 3, 1, "Добавить точку",
                 true, true);
         addToFirstSet.setOnClick(() -> {
             // если числа введены верно
@@ -233,10 +233,7 @@ public class PanelControl extends GridPanel {
             for (Input input : inputs)
                 input.accept(ee);
 
-            for (Button button : buttons) {
-                if (lastWindowCS != null)
-                    button.checkOver(lastWindowCS.getRelativePos(new Vector2i(ee)));
-            }
+
             // событие нажатия мыши
         } else if (e instanceof EventMouseButton ee) {
             if (!lastInside || !ee.isPressed())

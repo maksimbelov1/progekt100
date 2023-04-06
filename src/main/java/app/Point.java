@@ -83,6 +83,14 @@ public class Point {
         return Objects.equals(pos, point.pos);
     }
 
+    //растояние до другой точки
+    public double distanceTo(Point p){
+        double dis=Math.sqrt((p.pos.x-this.pos.x)*(p.pos.x-this.pos.x)+( p.pos.y-this.pos.y)*( p.pos.y-this.pos.y));
+
+    return dis;
+
+    }
+
     /**
      * Получить хэш-код объекта
      *

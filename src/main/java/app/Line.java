@@ -49,7 +49,24 @@ public class Line {
 
     }
     public Point cross(Line line){
+        double t1;
 
+
+
+        double ly12=b.y-a.y;
+        double lx12=b.x-a.x;
+        double lx43=line.a.x-line.b.x;
+        double ly43=line.a.y-line.b.y;
+        double ly13=line.a.y-a.y;
+        double lx13=line.a.x-a.x;
+        double ly34=line.b.y-line.a.y;
+        double lx34=line.b.x-line.a.x;
+        double D=ly12 * lx43 - ly13 * lx13;
+        t1 = (ly13 * lx43 - lx13 * ly43)/D;
+
+
+
+        return new Point(new Vector2d(lx12 * t1 + a.x, ly12 * t1 + a.y));
 
     }
 

@@ -58,6 +58,8 @@ public class Task {
 
     Line line;
 
+    Segment segment;
+
     /**
      * Задача
      *
@@ -75,6 +77,8 @@ public class Task {
         this.crossed = new ArrayList<>();
         this.single = new ArrayList<>();
         line = new Line(new Vector2d(1, 2), new Vector2d(2, 1), this);
+
+
     }
 
 
@@ -121,7 +125,7 @@ public class Task {
                 Point a = points.get(i);
                 Point b = points.get(j);
                 // если точки совпадают по положению
-                if (a.pos.equals(b.pos) ) {
+                if (a.pos.equals(b.pos)) {
                     if (!crossed.contains(a)) {
                         crossed.add(a);
                         crossed.add(b);
@@ -137,6 +141,10 @@ public class Task {
 
         // задача решена
         solved = true;
+
+
+        segment = new Segment(new Vector2d(2, 2));
+
     }
 
     /**
@@ -198,6 +206,12 @@ public class Task {
      * @param mouseButton кнопка мыши
      */
     public void click(Vector2i pos, MouseButton mouseButton) {
+
+
+        // задам pos1 для segment
+        Vector2i pos1 = new Vector2i(0, 0);
+
+
         if (lastWindowCS == null) return;
         // получаем положение на экране
         Vector2d taskPos = ownCS.getCoords(pos, lastWindowCS);
@@ -211,7 +225,7 @@ public class Task {
     /**
      * Добавить точку
      *
-     * @param pos      положение
+     * @param pos положение
      */
     public void addPoint(Vector2d pos) {
         solved = false;
@@ -234,7 +248,10 @@ public class Task {
         canvas.save();
         // создаём перо
         try (var paint = new Paint()) {
+            if (segment != null)
+                segment.paint(canvas, windowCS, ownCS);
             for (Point p : points) {
+
                 if (!solved) {
                     paint.setColor(p.getColor());
                 } else {

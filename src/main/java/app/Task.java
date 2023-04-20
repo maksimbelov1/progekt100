@@ -17,6 +17,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import static app.Colors.CROSSED_COLOR;
 import static app.Colors.SUBTRACTED_COLOR;
+import static java.lang.reflect.Array.getLength;
 
 /**
  * Класс задачи
@@ -28,9 +29,12 @@ public class Task {
      */
     public static final String TASK_TEXT = """
             ПОСТАНОВКА ЗАДАЧИ:
-            Заданы два множества точек в вещественном
-            пространстве. Требуется построить пересечение
-            и разность этих множеств""";
+            На плоскости задано множество точек.
+            Найти среди них такие две пары, что
+            точка пересечения прямых,
+            проведенных через эти пары точек,
+            находится ближе всего к началу
+            координат.""";
 
     /**
      * Вещественная система координат задачи
@@ -58,6 +62,7 @@ public class Task {
 
     Line line;
 
+    @Getter
     Segment segment;
 
     /**
@@ -117,33 +122,48 @@ public class Task {
         // очищаем списки
         crossed.clear();
         single.clear();
+        Point px = null;
+        Point pmin = null;
+        double l = Double.MAX_VALUE;
+        double x = 0;
 
         // перебираем пары точек
         for (int i = 0; i < points.size(); i++) {
             for (int j = i + 1; j < points.size(); j++) {
-                // сохраняем точки
-                Point a = points.get(i);
-                Point b = points.get(j);
-                // если точки совпадают по положению
-                if (a.pos.equals(b.pos)) {
-                    if (!crossed.contains(a)) {
-                        crossed.add(a);
-                        crossed.add(b);
+                for (int w = j + 1; w < points.size(); w++) {
+                    for (int v = w + 1; v < points.size(); v++) {
+                        // сохраняем точки
+
+
+                        Point a = points.get(i);
+                        Point b = points.get(j);
+
+                        Point c = points.get(w);
+                        Point d = points.get(v);
+
+                        Line l1 = new Line(new Vector2d(a.pos.x, a.pos.y), new Vector2d(b.pos.x, b.pos.y), this);
+                        Line l2 = new Line(new Vector2d(c.pos.x, c.pos.y), new Vector2d(d.pos.x, d.pos.y), this);
+
+
+                        px = l1.cross(l2);
+                        x = Math.sqrt(Math.pow((px.pos.x), 2) + Math.pow((px.pos.y), 2));
+                        // если растояние между прямыми меньше x
+                        if (x < l) {
+                            l = x;
+                            pmin = l1.cross(l2);
+
+                        }
                     }
                 }
             }
-        }
 
-        /// добавляем вс
-        for (Point point : points)
-            if (!crossed.contains(point))
-                single.add(point);
+        }
 
         // задача решена
         solved = true;
 
 
-        segment = new Segment(new Vector2d(2, 2));
+        segment = new Segment(new Vector2d(pmin.pos.x, pmin.pos.y));
 
     }
 

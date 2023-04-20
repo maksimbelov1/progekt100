@@ -73,7 +73,8 @@ public class Segment {
      */
     public double getLength() {
         Vector2d tmp = Vector2d.subtract(pos1, pos2);
-        return tmp.length();
+        double l= Math.sqrt(Math.pow((pos1.x-pos2.x), 2)+Math.pow((pos1.y-pos2.y), 2));
+        return l;
     }
 
 

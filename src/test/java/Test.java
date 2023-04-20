@@ -1,10 +1,12 @@
 import app.Line;
 import app.Point;
+import app.Segment;
 import app.Task;
 import misc.CoordinateSystem2d;
 import misc.Vector2d;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Test {
 
@@ -109,5 +111,21 @@ public class Test {
 
         assert Math.abs(p.pos.x - target.pos.x) < 0.001 && Math.abs(p.pos.y - target.pos.y) < 0.001;
 
+    }
+
+    @org.junit.Test
+    public void test5() {
+        ArrayList<Point> pointList = new ArrayList<>();
+        pointList.add(new Point(new Vector2d(0.1, 0.3)));
+        pointList.add(new Point(new Vector2d(0.2, 0.5)));
+        pointList.add(new Point(new Vector2d(0.1, -0.5)));
+
+        Task t = new Task(new CoordinateSystem2d(-10, -10, 20, 20), pointList);
+
+        t.solve();
+
+        Segment segment = t.getSegment();
+
+        assert Math.abs(segment.pos1.x - 0) < 0.001 && Math.abs(segment.pos1.y-0) < 0.001;
     }
 }

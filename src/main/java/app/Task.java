@@ -126,25 +126,18 @@ public class Task {
         Point pmin = null;
         double l = Double.MAX_VALUE;
         double x = 0;
-
         // перебираем пары точек
         for (int i = 0; i < points.size(); i++) {
             for (int j = i + 1; j < points.size(); j++) {
                 for (int w = j + 1; w < points.size(); w++) {
                     for (int v = w + 1; v < points.size(); v++) {
                         // сохраняем точки
-
-
                         Point a = points.get(i);
                         Point b = points.get(j);
-
                         Point c = points.get(w);
                         Point d = points.get(v);
-
                         Line l1 = new Line(new Vector2d(a.pos.x, a.pos.y), new Vector2d(b.pos.x, b.pos.y), this);
                         Line l2 = new Line(new Vector2d(c.pos.x, c.pos.y), new Vector2d(d.pos.x, d.pos.y), this);
-
-
                         px = l1.cross(l2);
                         x = Math.sqrt(Math.pow((px.pos.x), 2) + Math.pow((px.pos.y), 2));
                         // если растояние между прямыми меньше x

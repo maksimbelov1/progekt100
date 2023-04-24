@@ -39,9 +39,6 @@ public class Point {
         return Misc.getColor(0xCC, 0x00, 0x00, 0xFF);
         };
 
-
-
-
     /**
      * Получить положение
      * (нужен для json)
@@ -51,7 +48,6 @@ public class Point {
     public Vector2d getPos() {
         return pos;
     }
-
 
     /**
      * Строковое представление объекта
@@ -82,15 +78,12 @@ public class Point {
         Point point = (Point) o;
         return Objects.equals(pos, point.pos);
     }
-
     //растояние до другой точки
     public double distanceTo(Point p){
         double dis=Math.sqrt((p.pos.x-this.pos.x)*(p.pos.x-this.pos.x)+( p.pos.y-this.pos.y)*( p.pos.y-this.pos.y));
 
     return dis;
-
     }
-
     /**
      * Получить хэш-код объекта
      *
@@ -99,6 +92,4 @@ public class Point {
     @Override
     public int hashCode() {
         return Objects.hash( pos);
-    }
-
-}
+    }}

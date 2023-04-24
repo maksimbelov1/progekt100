@@ -14,16 +14,11 @@ public class Line {
     public Vector2d b;
 
     Task task;
-
     public Line(Vector2d a, Vector2d b, Task task) {
         this.a = a;
         this.b = b;
         this.task = task;
     }
-
-
-
-
     void renderLine(Canvas canvas, CoordinateSystem2i windowCS) {
         // опорные точки линии
         Vector2i pointA = windowCS.getCoords(a, task.getOwnCS());
@@ -69,7 +64,6 @@ public class Line {
             double y = (a1*c2 - a2*c1)/determinant;
             return new Point(new Vector2d(x, y));
         }
-
 
     }
 

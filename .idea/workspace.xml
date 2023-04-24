@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe0ecc45-9e69-4ea5-800f-d9337d125434" name="Changes" comment="17/04">
+      <change afterPath="$PROJECT_DIR$/2023_3_Белов_Максим.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/~$23_3_Белов_Максим.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/Segment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Segment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/Line.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Line.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Point.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Task.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Test.java" afterDir="false" />
     </list>
@@ -57,10 +60,10 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.Test">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="progekt10-master" />
+      <module name="test" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -86,8 +89,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.Test" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.Test" />
         <item itemvalue="JUnit.Test.test1" />
       </list>
     </recent_temporary>
